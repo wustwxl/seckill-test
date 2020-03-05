@@ -35,7 +35,7 @@ public class SeckillProducer8000ApplicationTests {
 
         redisService.set("testRedis","666");
 
-        String str = redisService.get("666");
+        String str = redisService.get("testRedis");
         System.out.println("当前字符串："+str);
     }
 
