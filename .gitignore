@@ -10,3 +10,4 @@
 *.war
 
 /.idea/
+/log/
