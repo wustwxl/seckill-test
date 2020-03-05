@@ -1,5 +1,6 @@
 package com.wust.seckillproducer8000;
 
+import com.wust.seckillproducer8000.redis.config.RedisService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,15 +15,15 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {SeckillProducer8000Application.class})
 @WebAppConfiguration
-class SeckillProducer8000ApplicationTests {
+public class SeckillProducer8000ApplicationTests {
 
     @Autowired
     WebApplicationContext webApplicationContext;
 
     MockMvc mockMvc;
 
-    //@Autowired
-    //Service service;
+    @Autowired
+    RedisService redisService;
 
     @Before
     public void setUp() throws Exception {
@@ -30,7 +31,12 @@ class SeckillProducer8000ApplicationTests {
     }
 
     @Test
-    void test() {
+    public void test() {
+
+        redisService.set("testRedis","666");
+
+        String str = redisService.get("666");
+        System.out.println("当前字符串："+str);
     }
 
 }
