@@ -3,9 +3,8 @@
 !**/src/test/**
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
+mvnw
 *.iml
-*.ipr
+mvnw.cmd
 target/
 .mvn/
