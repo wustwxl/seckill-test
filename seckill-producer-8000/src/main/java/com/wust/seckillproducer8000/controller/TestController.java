@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 测试web服务类
+ *
+ * @author wxl
+ * @date 2020.3.5
+ */
 @Slf4j
 @RestController
 @RequestMapping("/test")
