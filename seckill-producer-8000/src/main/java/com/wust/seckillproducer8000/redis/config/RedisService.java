@@ -1,5 +1,6 @@
 package com.wust.seckillproducer8000.redis.config;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.RedisServerCommands;
 import org.springframework.data.redis.core.HashOperations;
@@ -7,6 +8,7 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.stereotype.Component;
 
 import java.nio.charset.Charset;
 import java.util.*;
@@ -18,6 +20,7 @@ import java.util.*;
  * @date 2020.3.5
  */
 @Slf4j
+@Component
 public class RedisService {
 
     /**
@@ -29,6 +32,14 @@ public class RedisService {
 
     public RedisService(RedisTemplate<String, String> redisTemplate) {
         this.redisTemplate = redisTemplate;
+    }
+
+    /**
+     * 添加到带有 过期时间的  缓存
+     */
+    public void setObjectExpire(String key, Object o, long time) {
+        String value = JSON.toJSONString(o);
+        setExpire(key,value,time);
     }
 
     /**
