@@ -15,7 +15,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {SeckillProducer8000Application.class})
 @WebAppConfiguration
-public class SeckillProducer8000ApplicationTests {
+public class RedisTest {
 
     @Autowired
     WebApplicationContext webApplicationContext;
@@ -26,7 +26,7 @@ public class SeckillProducer8000ApplicationTests {
     RedisService redisService;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
